@@ -1,31 +1,35 @@
-// UMD
-if(typeof define !== 'function') {
-	define = function( deps, definition ) {
-		window.pintxos = window.pintxos || {};
-		window.pintxos.inherit = definition();
-		define = null;
-	};
-}
-
-define([], function () {
+(function (window) {
 
 	'use strict';
 
-	/**
-	 * Simple javascript inheritance
-	 *
-	 * @param  {Function}
-	 * @param  {Function}
-	 * @return {void}
-	 */
-	return function(child, parent) {
+	// UMD
+	if(typeof define !== 'function') {
+		window.define = function( deps, definition ) {
+			window.pintxos = window.pintxos || {};
+			window.pintxos.inherit = definition();
+			define = null;
+		};
+	}
 
-		function temp () {}
-		temp.prototype = parent.prototype;
+	define([], function () {
 
-		child.prototype._superClass = parent.prototype;
-		child.prototype = new temp();
+		/**
+		 * Simple javascript inheritance
+		 *
+		 * @param  {Function}
+		 * @param  {Function}
+		 * @return {void}
+		 */
+		return function(Child, Parent) {
 
-	};
+			function Temp () {}
+			Temp.prototype = Parent.prototype;
 
-});
+			Child.prototype = new Temp();
+			Child.prototype._superClass = Parent.prototype;
+
+		};
+
+	});
+
+})(this);

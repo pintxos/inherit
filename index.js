@@ -11,39 +11,21 @@ define([], function () {
 
 	'use strict';
 
-	/* Constructor
-	----------------------------------------------- */
-	var inherit = function () {
-
-	};
-
-
-	/* Methods
-	----------------------------------------------- */
-
 	/**
-	 * All bootstrap logic should go here
+	 * Simple javascript inheritance
+	 *
+	 * @param  {Function}
+	 * @param  {Function}
 	 * @return {void}
 	 */
-	inherit.prototype.init = function () {
+	return function(child, parent) {
+
+		function temp () {}
+		temp.prototype = parent.prototype;
+
+		child.prototype._superClass = parent.prototype;
+		child.prototype = new temp();
 
 	};
-
-	/**
-	 * All teardown logic should go here
-	 * @return {void}
-	 */
-	inherit.prototype.destroy = function () {
-
-	};
-
-
-	/* Event handlers
-	----------------------------------------------- */
-
-
-	/* Export
-	----------------------------------------------- */
-	return inherit;
 
 });

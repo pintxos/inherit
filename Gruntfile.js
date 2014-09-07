@@ -1,5 +1,7 @@
 module.exports = function (grunt) {
 
+	'use strict';
+
 	require('load-grunt-tasks')(grunt);
 
 	grunt.initConfig({
@@ -16,19 +18,23 @@ module.exports = function (grunt) {
 				]
 			},
 			dev: {
-				browsers: ['Chrome']	
+				browsers: ['Chrome']
 			},
 			ci: {
 				browsers: ['PhantomJS'],
 				singleRun: true
 			}
 		},
-		
+
 		jshint: {
 			files: ['*.js'],
 			options: {
 				strict: true,
-				es3: true
+				es3: true,
+				globals: {
+					window: true,
+					define: true
+				}
 			}
 		}
 	});

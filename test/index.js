@@ -1,4 +1,4 @@
-describe('child constructor', function () {
+describe('inherit', function () {
 
 	var Child, Parent, instance;
 
@@ -16,12 +16,12 @@ describe('child constructor', function () {
 
 	});
 
-	it('Shoud have a property _superClass', function () {
-		expect(instance._superClass).toBeDefined();
+	it('Child should have a method called init', function () {
+		expect(instance.init).toBeDefined();
 	});
 
 	it('Should have a prototype _superClass which contains the methods of the parent constructor', function () {
-		expect(instance._superClass).toEqual(Parent.prototype);
+		expect(Child._super).toEqual(Parent.prototype);
 	});
 
 

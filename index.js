@@ -26,7 +26,7 @@
 			Temp.prototype = Parent.prototype;
 
 			Child.prototype = new Temp();
-			Child.prototype._superClass = Parent.prototype;
+			Child._super = Parent.prototype;
 
 		};
 

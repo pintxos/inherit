@@ -24,5 +24,9 @@ describe('inherit', function () {
 		expect(Child._super).toEqual(Parent.prototype);
 	});
 
+	it('Should have a property constructor pointing to the Child constructor', function () {
+		expect(instance.constructor).toBe(Child);
+	});
+
 
 });

@@ -21,12 +21,13 @@
 		 * @return {void}
 		 */
 		return function(Child, Parent) {
-
+			var proto;
 			function Temp () {}
 			Temp.prototype = Parent.prototype;
 
 			Child.prototype = new Temp();
 			Child._super = Parent.prototype;
+			Child.prototype.constructor = Child;
 
 		};
 

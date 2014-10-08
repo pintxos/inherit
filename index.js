@@ -21,7 +21,7 @@
 		 * @return {void}
 		 */
 		return function(Child, Parent) {
-			var proto;
+
 			function Temp () {}
 			Temp.prototype = Parent.prototype;
 
